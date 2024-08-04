@@ -9,15 +9,15 @@ import { bind, getCurrentMonth, getErrorMessage } from '../utils/utils';
 import FormContainer from './FormContainer';
 import { getDepartmentsAPI, getOrgAPI, getProfilesAPI, getSessionsAPI, getUsersAPI, logout } from '../actions/APIActions';
 
-// import io from 'socket.io-client';
-// import { configSocket } from '../utils/socket';
+import io from 'socket.io-client';
+import { configSocket } from '../utils/socket';
 
-// const socket = io('http://localhost:8443', {
-//       transports: ['websocket'],
-//       cors: {
-//         origin: "http://localhost:3000/",
-//       }
-//   });
+const socket = io('https://shahinshaas-2642.zcodeusers.com', {
+      transports: ['websocket'],
+      cors: {
+        origin: "https://medical-b3e04.web.app/",
+      }
+  });
 class DashboardLayout extends Component {
   constructor(props){
     super(props)
@@ -72,7 +72,7 @@ class DashboardLayout extends Component {
   componentDidMount(){
     const { userObj, getDatas, logoutUser } = this.props;
     const { orgId } = userObj;
-    // configSocket({socket, logoutUser})
+    configSocket({socket, logoutUser})
     getOrgAPI(orgId).then(res=>{
       console.log(res);
       this.setState({isFormLoading:false})
