@@ -12,12 +12,12 @@ import { getDepartmentsAPI, getOrgAPI, getProfilesAPI, getSessionsAPI, getUsersA
 import io from 'socket.io-client';
 import { configSocket } from '../utils/socket';
 
-const socket = io('http://localhost:8443', {
-      transports: ['websocket'],
-      cors: {
-        origin: "http://localhost:3000/",
-      }
-  });
+// const socket = io('http://localhost:8443', {
+//       transports: ['websocket'],
+//       cors: {
+//         origin: "http://localhost:3000/",
+//       }
+//   });
 class DashboardLayout extends Component {
   constructor(props){
     super(props)
@@ -72,7 +72,7 @@ class DashboardLayout extends Component {
   componentDidMount(){
     const { userObj, getDatas, logoutUser } = this.props;
     const { orgId } = userObj;
-    configSocket({socket, logoutUser})
+    // configSocket({socket, logoutUser})
     getOrgAPI(orgId).then(res=>{
       console.log(res);
       this.setState({isFormLoading:false})
