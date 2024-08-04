@@ -9,8 +9,8 @@ import { bind, getCurrentMonth, getErrorMessage } from '../utils/utils';
 import FormContainer from './FormContainer';
 import { getDepartmentsAPI, getOrgAPI, getProfilesAPI, getSessionsAPI, getUsersAPI, logout } from '../actions/APIActions';
 
-import io from 'socket.io-client';
-import { configSocket } from '../utils/socket';
+// import io from 'socket.io-client';
+// import { configSocket } from '../utils/socket';
 
 // const socket = io('http://localhost:8443', {
 //       transports: ['websocket'],
